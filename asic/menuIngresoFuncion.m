@@ -1,8 +1,11 @@
 function transfer = menuIngresoFuncion()
-  printf("Seleccione una opcion para ingresar la funcion de transferencia a traves de:\n");
-  printf("1 - Coeficientes del polinomio del numerador y denominador\n");
-  printf("2 - Polos, ceros y ganancia\n");
-  opcion = input ("Opcion: ");
+  options = {"Coeficientes del polinomio del numerador y denominador", 
+              "Polos, ceros y ganancia"};
+  [opcion, ok] = listdlg ("ListString", options,
+                          "SelectionMode", "Single", 
+                          "ListSize",[400 100],
+                          "Name","Menu",
+                          "PromptString","Seleccione una opcion para ingresar la funcion de transferencia a traves de:");
   if opcion == 1,
     transfer = createTransFromNumDenCoef();
   elseif opcion == 2,

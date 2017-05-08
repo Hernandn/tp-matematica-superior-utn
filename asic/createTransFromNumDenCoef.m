@@ -1,5 +1,6 @@
 function transfer = createTransFromNumDenCoef()
-  coefNumerador = input("Ingrese los coeficientes del numerador en un array: ");
-  coefDenominador = input("Ingrese los coeficientes del denominador en un array: ");
+  respuesta = inputdlg({"Numeradores separados por comas","Denominadores separados por comas"},"Ingrese los coeficientes",[1,1]);
+  coefNumerador = strCellToNumVector(strsplit(respuesta{1}, ","));
+  coefDenominador = strCellToNumVector(strsplit(respuesta{2}, ","));
   transfer = tf(coefNumerador,coefDenominador);
 endfunction

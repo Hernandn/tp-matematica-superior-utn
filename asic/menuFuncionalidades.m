@@ -1,20 +1,25 @@
 function ret = menuFuncionalidades(transfer)
   opcion = 1;
   while opcion>0 && opcion<9,
-    printf("\nSeleccione una opcion:\n");
-    printf("1 - Obtener la expresion de la funcion transferencia\n");
-    printf("2 - Obtener polos\n");
-    printf("3 - Obtener ceros\n");
-    printf("4 - Obtener ganancia\n");
-    printf("5 - Obtener expresion con polos, ceros y ganancia\n");
-    printf("6 - Graficar polos y ceros\n");
-    printf("7 - Indicar estabilidad del sistema\n");
-    printf("8 - Obtener todas las anteriores\n");
-    printf("9 - Ingresar nueva funcion\n");
-    printf("10 - Finalizar\n");
-    opcion = input ("Opcion: ");
+    
+    options = {"Obtener la expresion de la funcion transferencia", 
+              "Obtener polos",
+              "Obtener ceros",
+              "Obtener ganancia",
+              "Obtener expresion con polos, ceros y ganancia",
+              "Graficar polos y ceros",
+              "Indicar estabilidad del sistema",
+              "Obtener todas las anteriores",
+              "Ingresar nueva funcion",
+              "Finalizar"};
+    [opcion, ok] = listdlg ("ListString", options,
+                          "SelectionMode", "Single", 
+                          "ListSize",[400 200],
+                          "Name","Menu",
+                          "PromptString","Seleccione una opcion:");
+    
     if opcion == 1,
-      printf("Falta implementar\n");
+      transfer
     elseif opcion == 2,
       getPolos(transfer);
     elseif opcion == 3,

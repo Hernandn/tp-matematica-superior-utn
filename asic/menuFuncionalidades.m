@@ -31,12 +31,8 @@ function ret = menuFuncionalidades(transfer)
     elseif opcion == 6,
       graficarPolosCeros(transfer);
     elseif opcion == 7,
-      printf("Falta implementar\n");
+      getEstabilidad(transfer);
     end;
   end;
-  if opcion == 9,
-    printf("Falta implementar\n");
-  elseif opcion == 10,
-    printf("\nPrograma finalizado\n\n");
-  end;
+  ret = opcion;
 endfunction

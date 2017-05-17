@@ -19,19 +19,30 @@ function ret = menuFuncionalidades(transfer)
                           "PromptString","Seleccione una opcion:");
     
     if opcion == 1,
-      transfer
+      mostrarStringsEnPopup("Expresion",getExpresionFuncion(transfer));
     elseif opcion == 2,
-      getPolos(transfer);
+      mostrarStringsEnPopup("Polos",getPolos(transfer));
     elseif opcion == 3,
-      getCeros(transfer);
+      mostrarStringsEnPopup("Ceros",getCeros(transfer));
     elseif opcion == 4,
-      getGanancia(transfer);
+      mostrarStringsEnPopup("Ganancia",getGanancia(transfer));
     elseif opcion == 5,
-      getPolosCerosGanancia(transfer);
+      mostrarStringsEnPopup("Polos, ceros y ganancia",
+                            getPolos(transfer),
+                            getCeros(transfer),
+                            getGanancia(transfer));
     elseif opcion == 6,
       graficarPolosCeros(transfer);
     elseif opcion == 7,
-      getEstabilidad(transfer);
+      mostrarStringsEnPopup("Estabilidad",getEstabilidad(transfer));
+    elseif opcion == 8,
+      mostrarStringsEnPopup("Todas",
+                            getExpresionFuncion(transfer),
+                            getPolos(transfer),
+                            getCeros(transfer),
+                            getGanancia(transfer),
+                            getEstabilidad(transfer));
+      graficarPolosCeros(transfer);
     end;
   end;
   ret = opcion;

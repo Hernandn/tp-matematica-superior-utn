@@ -2,6 +2,9 @@ function ret = getExpresionPolinomioFromCoeficientes(coeficientes)
   aux = '';
   cantidadCoef = length(coeficientes);
   for i=1:cantidadCoef,
+    if coeficientes(i)==0,
+      continue;#salteo coeficiente nulo
+    end;
     #signo del coeficiente
     if coeficientes(i)<0,
       aux = cstrcat(aux,' - ');
@@ -10,8 +13,8 @@ function ret = getExpresionPolinomioFromCoeficientes(coeficientes)
         aux = cstrcat(aux,' + ');
       end;
     end;
-    #imprimo el coeficiente solo si es mayor que 1 en modulo
-    if abs(coeficientes(i))>1,
+    #imprimo el coeficiente solo si es mayor que 1 en modulo o si es el termino independiente
+    if abs(coeficientes(i))>1 || (cantidadCoef-i)==0,
       aux = cstrcat(aux,num2str(abs(coeficientes(i))));
     end;
     #variable s
